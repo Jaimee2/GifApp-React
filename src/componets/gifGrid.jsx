@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { getGift } from "../helpers/getGifs.js";
+import React from 'react';
 import GifItem from "./GifItem.jsx";
+import useFetchGifs from "../hooks/useFetchGifs.js";
 
 function GifGrid({category}) {
-    const [images, setImages] = useState([]);
 
-    useEffect(() => { //Like onInit on Angular :) when the component is initialized
-        getGift(category).then(newImages => setImages(newImages));
-    }, [category]) //React to changes dependencies!
+    const {images, isLoading} = useFetchGifs(category);
+    console.log(isLoading)
 
     return (
         <>
             <h3>{ category }</h3>
+            {
+                isLoading ? <h2> Loading... </h2> : null
+            }
 
             <div className="card-grid">
                 {
