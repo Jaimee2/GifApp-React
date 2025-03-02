@@ -19,4 +19,4 @@ export const getGift = async (category) => {
     console.log(gifts)
 
     return gifts;
-}
+} 

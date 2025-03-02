@@ -17,7 +17,9 @@ function AddCategories({onNewValue}) {
     }
 
     return (
-        <form onSubmit={ (event) => onsubmitEvent(event) }>
+        <form onSubmit={ (event) => onsubmitEvent(event) }
+              aria-label="form"
+        >
             <input type="text"
                    placeholder="Search gifts..."
                    value={ inputValue }
